@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 🌹</title>
+<link rel="stylesheet" href="new.css">
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- START SCREEN -->
+<div id="start">
+  <div class="startBox">
+    <h1>Tap to Open 💖</h1>
+    <p>I have something for your smile…</p>
+  </div>
+</div>
+
+<!-- EFFECTS -->
+<div class="petal-layer"></div>
+<div class="heart-layer"></div>
+
+<!-- MAIN -->
+<div class="scene hidden">
+  <h2 class="title">Happy Rose Day Sayanti 🌹</h2>
+
+  <div class="card">
+    <p class="typing">
+      Your smile turns ordinary moments into memories.<br><br>
+      This rose carries feelings words can’t explain.<br><br>
+      Today isn’t about roses… it’s about *you*.<br><br>
+      <span>Forever Yours,<br>Himansu</span>
+    </p>
+  </div>
+
+  <!-- ROSE BLOOM -->
+  <div class="rose">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+    <div class="stem"></div>
+    <div class="leaf l1"></div>
+    <div class="leaf l2"></div>
+  </div>
+</div>
+
+<script>
+const start = document.getElementById("start");
+const music = document.getElementById("bgMusic");
+const scene = document.querySelector(".scene");
+
+start.addEventListener("click", () => {
+  start.style.opacity = "0";
+  setTimeout(()=>start.style.display="none",600);
+  scene.classList.remove("hidden");
+  music.volume = 0.7;
+  music.play();
+});
+
+/* Falling petals */
+for(let i=0;i<40;i++){
+  let p=document.createElement("div");
+  p.className="falling-petal";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=6+Math.random()*6+"s";
+  p.style.opacity=Math.random();
+  document.querySelector(".petal-layer").appendChild(p);
+}
+
+/* Floating hearts */
+for(let i=0;i<30;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=5+Math.random()*7+"s";
+  document.querySelector(".heart-layer").appendChild(h);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rose Day ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="music-btn" onclick="playMusic()">🎵 Play Music</button>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Falling petals -->
+<div class="petals">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<div class="container">
+
+  <div class="rose">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+    <div class="petal p5"></div>
+
+    <div class="stem"></div>
+    <div class="leaf l1"></div>
+    <div class="leaf l2"></div>
+  </div>
+
+  <div class="text">
+    <h1>Happy Rose Day 🌹</h1>
+    <p>
+      Your smile is more beautiful than a rose ❤️<br><br>
+      <a href="new.html" class="surprise-btn">Click for Surprise 🎁</a>
+    </p>
+  </div>
+
+</div>
+
+<script>
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+</script>
+
+</body>
+</html>

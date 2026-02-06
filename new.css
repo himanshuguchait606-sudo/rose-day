@@ -1,0 +1,151 @@
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
+    url("background image.png");
+  background-size:cover;
+  background-position:center;
+  font-family:"Segoe UI",sans-serif;
+  color:white;
+  overflow:hidden;
+}
+
+/* START */
+#start{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+  transition:.6s;
+}
+.startBox{text-align:center}
+.startBox h1{
+  font-size:36px;
+  color:#ffb6c1;
+  animation:pulse 1.4s infinite;
+}
+.startBox p{opacity:.7}
+
+/* MAIN */
+.hidden{display:none}
+.scene{text-align:center;padding:20px}
+
+.title{
+  margin-top:30px;
+  font-size:28px;
+  text-shadow:0 0 25px pink;
+}
+
+/* CARD */
+.card{
+  margin:30px auto;
+  max-width:92%;
+  padding:25px;
+  background:rgba(255,255,255,.12);
+  border-radius:22px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 35px rgba(255,182,193,.35);
+}
+
+.typing{
+  font-size:18px;
+  line-height:1.6;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:2px solid pink;
+  animation:typing 9s steps(90,end), blink .8s infinite;
+}
+.typing span{color:#ffb6c1;font-weight:bold}
+
+/* ROSE BLOOM */
+.rose{
+  margin:40px auto;
+  width:110px;
+  height:190px;
+  position:relative;
+  animation:bloom 3s ease-out forwards;
+}
+.petal{
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:radial-gradient(circle at top, #ff7a8a, crimson);
+  border-radius:50%;
+}
+.p1{top:0;left:25px}
+.p2{top:15px;left:0}
+.p3{top:15px;right:0}
+.p4{top:35px;left:15px}
+.p5{top:35px;right:15px}
+
+.stem{
+  position:absolute;
+  width:6px;
+  height:95px;
+  background:#1f7a1f;
+  bottom:0;
+  left:52px;
+}
+.leaf{
+  width:32px;
+  height:16px;
+  background:#2ecc71;
+  position:absolute;
+  border-radius:50%;
+}
+.l1{bottom:45px;left:18px;transform:rotate(-25deg)}
+.l2{bottom:60px;right:18px;transform:rotate(25deg)}
+
+/* FALLING PETALS */
+.falling-petal{
+  position:absolute;
+  top:-20px;
+  width:14px;
+  height:14px;
+  background:pink;
+  border-radius:50%;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(120vh) rotate(360deg);opacity:0}
+}
+
+/* HEARTS */
+.heart-layer,.petal-layer{
+  position:fixed;inset:0;pointer-events:none
+}
+.heart{
+  width:16px;height:16px;
+  background:hotpink;
+  position:absolute;
+  bottom:-20px;
+  transform:rotate(45deg);
+  animation:float linear infinite;
+}
+.heart:before,.heart:after{
+  content:"";
+  width:16px;height:16px;
+  background:hotpink;
+  border-radius:50%;
+  position:absolute;
+}
+.heart:before{top:-8px}
+.heart:after{left:-8px}
+
+@keyframes float{
+  to{transform:translateY(-120vh) rotate(45deg);opacity:0}
+}
+
+@keyframes typing{from{width:0}to{width:100%}}
+@keyframes blink{50%{border-color:transparent}}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@keyframes bloom{from{transform:scale(0)}to{transform:scale(1)}}
+
+@media(max-width:480px){
+  .typing{font-size:16px}
+}
